@@ -1,29 +1,17 @@
-#########  Loading Packages R ######### Version 3.2.3
 
-install.packages("Rlab")
-install.packages("fda")
-install.packages("stats")
-install.packages("MASS")
-install.packages("splines")
-install.packages("psych")
-install.packages("tensor")
-install.packages("crs")
-install.packages("orthogonalsplinebasis")
-install.packages("EQL")
+# clear all variables
+rm(list = ls(all = TRUE))
+graphics.off()
 
-library(Rlab)
-library(fda)
-library(stats)
-library(MASS)
-library(splines)
-library(psych)
-library(tensor)
-library(crs)
-library(orthogonalsplinebasis)
-library(EQL)
+# install and load packages
+libraries = c("Rlab", "fda", "stats", "MASS", "splines", "psych", "tensor", "crs", "orthogonalsplinebasis", "EQL")
+lapply(libraries, function(x) if (!(x %in% installed.packages())) {
+    install.packages(x)
+})
+lapply(libraries, library, quietly = TRUE, character.only = TRUE)
+
 
 ######### Generate Data ######### 
-
 
 m       = 20  #alternative choices possbile
 n       = 500  #sample size
@@ -43,9 +31,11 @@ delta[1:n] = 1
 ones       = rep(1, 1, n)
 YX.vec     = 0.3 * Y + sqrt(1 - 0.3^2) * U
 q.const    = quantile(YX.vec, probs = 0.2)
+
 f.fct      = function(x) {
     as.numeric(x >= q.const) + 0.1 * as.numeric(x < q.const)
 }
+
 my = f.fct(YX.vec)
 for (i in 1:n) {
     delta[i] <- rbern(1, my[i])
@@ -95,4 +85,3 @@ test[1, 1] = as.numeric(Test0)  #Value of Test Statistic
 test[1, 2] = as.numeric(Test0 > CC[9500])  #Critical Value
 test
  
-
