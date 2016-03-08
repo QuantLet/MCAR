@@ -1,3 +1,4 @@
+
 Name of Quantlet: MCARtest
 
 Published in: SFB 649 Discussion Paper
@@ -5,12 +6,12 @@ Published in: SFB 649 Discussion Paper
 Description: Testing Missing Completely at Random using Instrumental Variables
 
 Keywords: 
--Incomplete data
--missing-data mechanism
--selection model
--nonparametric hypothesis testing
--instrumental variable
--series estimation
+- Incomplete data
+- missing-data mechanism
+- selection model
+- nonparametric hypothesis testing
+- instrumental variable
+- series estimation
 
 Author: Christoph Breunig
 
