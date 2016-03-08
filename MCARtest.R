@@ -4,7 +4,8 @@ rm(list = ls(all = TRUE))
 graphics.off()
 
 # install and load packages
-libraries = c("Rlab", "fda", "stats", "MASS", "splines", "psych", "tensor", "crs", "orthogonalsplinebasis", "EQL")
+# libraries = c("Rlab", "fda", "stats", "MASS", "splines", "psych", "tensor", "crs", "orthogonalsplinebasis", "EQL")
+libraries = c("Rlab", "EQL")
 lapply(libraries, function(x) if (!(x %in% installed.packages())) {
     install.packages(x)
 })
@@ -84,4 +85,3 @@ CC        = sort(eig.vec[1:c.eig] %*% C.mat)
 test[1, 1] = as.numeric(Test0)  #Value of Test Statistic
 test[1, 2] = as.numeric(Test0 > CC[9500])  #Critical Value
 test
- 
